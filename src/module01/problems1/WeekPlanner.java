@@ -25,7 +25,6 @@ public class WeekPlanner {
         while (true) {
             System.out.print("Please, input the day of the week: ");
             String inputDay = scanner.nextLine();
-
             if (inputDay.equals("exit")) {
                 break;
             }

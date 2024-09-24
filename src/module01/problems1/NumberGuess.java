@@ -9,7 +9,6 @@ public class NumberGuess {
         Random random = new Random();
 
         int randomNumber = random.nextInt(101);
-
         System.out.print("Please enter your name: ");
         String name = scanner.nextLine();
 
