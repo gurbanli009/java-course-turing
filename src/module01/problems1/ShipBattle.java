@@ -1,4 +1,5 @@
 package ModuleProblems;
+
 import java.util.Scanner;
 import java.util.Random;
 
