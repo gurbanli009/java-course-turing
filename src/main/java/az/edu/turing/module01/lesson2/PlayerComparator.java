@@ -18,4 +18,3 @@ public class PlayerComparator implements Comparator<Player> {
         return p1.isFemale() ? -1 : 1;
     }
 }
-
