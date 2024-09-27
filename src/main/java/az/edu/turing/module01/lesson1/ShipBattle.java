@@ -1,7 +1,7 @@
-package az.edu.turing.module01;
+package az.edu.turing.module01.lesson1;
 
-import java.util.Scanner;
 import java.util.Random;
+import java.util.Scanner;
 
 public class ShipBattle {
     public static void main(String[] args) {
