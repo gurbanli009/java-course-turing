@@ -1,4 +1,4 @@
-package ModuleProblems;
+package az.edu.turing.module01.lesson1;
 
 import java.util.Random;
 import java.util.Scanner;
