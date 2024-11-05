@@ -3,7 +3,7 @@ CREATE TABLE users (
                        created_at timestamp(3) DEFAULT now(),
                        updated_at timestamp(3) DEFAULT now(),
                        email varchar(255) NOT NULL UNIQUE CHECK (email LIKE '%@%_._%'),
-                       age bigint NOT NULL,
+                       age bigint NOT NULL CHECK ( age > 0 ),
                        gender varchar(6) NOT NULL,
                        username varchar(50) NOT NULL UNIQUE,
                        bio varchar(100)
@@ -18,7 +18,9 @@ CREATE TABLE posts (
                        tags varchar(255),
                        likes bigint DEFAULT 0,
                        saves bigint DEFAULT 0,
-                       user_id bigint REFERENCES users(id)
+                       user_id bigint REFERENCES users(id),
+                       created_by bigint REFERENCES users(id),
+                       updated_by bigint REFERENCES users(id)
 );
 
 CREATE TABLE comments (
@@ -28,7 +30,9 @@ CREATE TABLE comments (
                           comment_likes_count bigint DEFAULT 0,
                           comment_replies_count bigint DEFAULT 0,
                           post_id bigint REFERENCES posts(id),
-                          user_id bigint REFERENCES users(id)
+                          user_id bigint REFERENCES users(id),
+                          created_by bigint REFERENCES users(id),
+                          updated_by bigint REFERENCES users(id)
 );
 
 CREATE TABLE likes (
@@ -36,7 +40,9 @@ CREATE TABLE likes (
                        user_id bigint REFERENCES users(id),
                        post_id bigint REFERENCES posts(id),
                        created_at timestamp(3) DEFAULT now(),
-                       updated_at timestamp(3) DEFAULT now()
+                       updated_at timestamp(3) DEFAULT now(),
+                       created_by bigint REFERENCES users(id),
+                       updated_by bigint REFERENCES users(id)
 );
 
 insert into users(id, email, age, gender, username, bio) values(1, 'joshgun@gmail.com', 20, 'male', 'joshgun123', 'I am Joshgun');
